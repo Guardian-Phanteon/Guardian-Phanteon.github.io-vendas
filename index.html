@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <style>
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+
+    a:hover {
+      color: #45a049;
+    }
+    body {
+      background-image: url("imagens/p.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    
+  
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <input type="text" id="loginUser" placeholder="Nome do aventureiro">
+    <input type="password" id="loginPass" placeholder="Senha secreta">
+    <button onclick="login()">Entrar</button>
+    <p>Não tem conta? <a href="register.html">criar nova conta</a></p>
+  </div>
+
+  <script>
+    function login() {
+      alert('Acesso concedido!');
+      window.location.href = "cliente.html";
+    }
+  </script>
+</body>
+</html>

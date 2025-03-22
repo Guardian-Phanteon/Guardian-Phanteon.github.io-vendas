@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Novo Cliente</title>
+  <style>
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+
+    a:hover {
+      color: #45a049;
+    }
+    body {
+      background-image: url("imagens/p.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    
+  
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro do Cliente</h2>
+    <input type="text" id="nomeCliente" placeholder="Nome do Cliente">
+    <input type="text" id="enderecoCliente" placeholder="Bairro">
+    <input type="text" id="telefoneCliente" placeholder="Numero de Celular">
+    <button onclick="salvarCliente()">Salvar e Ver Itens</button>
+  </div>
+
+  <script>
+    function salvarCliente() {
+      alert('Cliente Registrado!');
+      window.location.href = "produtos.html";
+    }
+  </script>
+</body>
+</html>
