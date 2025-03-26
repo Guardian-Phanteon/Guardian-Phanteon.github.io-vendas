@@ -71,8 +71,27 @@
 
   <script>
     function login() {
-      alert('Acesso concedido!');
-      window.location.href = "cliente.html";
+      const user = document.getElementById('loginUser').value;
+      const pass = document.getElementById('loginPass').value;
+
+      if (user === "" || pass === "") {
+        alert('Por favor, preencha todos os campos!');
+        return;
+      }
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('HEAD', 'cliente.html', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            alert('Acesso concedido!');
+            window.location.href = "cliente.html";
+          } else {
+            alert('Ocorreu um problema ao acessar a página. Por favor, tente novamente mais tarde.');
+          }
+        }
+      };
+      xhr.send();
     }
   </script>
 </body>
