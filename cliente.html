@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Novo Cliente</title>
   <style>
-    .container {
+   .container {
       width: 100%;
       max-width: 400px;
       margin: 0 auto;
@@ -48,7 +48,7 @@
     }
     
   
-    .container {
+   .container {
       width: 100%;
       max-width: 400px;
       margin: 0 auto;
@@ -70,6 +70,15 @@
 
   <script>
     function salvarCliente() {
+      const nome = document.getElementById('nomeCliente').value;
+      const endereco = document.getElementById('enderecoCliente').value;
+      const telefone = document.getElementById('telefoneCliente').value;
+
+      if (nome === "" || endereco === "" || telefone === "") {
+        alert('Por favor, preencha todos os campos!');
+        return;
+      }
+
       alert('Cliente Registrado!');
       window.location.href = "produtos.html";
     }
