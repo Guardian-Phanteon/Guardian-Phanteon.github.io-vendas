@@ -157,24 +157,52 @@
   </div>
 
   <script>
- function comprarProduto(produto) {
-      alert('Compra realizada: ' + produto);
-    
-    // faz animacao funcionar
-      const btn = event.target;
-    
-      
-      btn.classList.add('button-animate');
-    
-      btn.addEventListener('animationend', () => {
-        btn.classList.remove('button-animate');
-      }, { once: true });
+    // Estoque inicial dos produtos
+    const estoque = {
+      "Capa Transparente": { quantidade: 10, preco: 300 },
+      "Capa Anti-impacto": { quantidade: 8, preco: 500 },
+      "Capa Personalizada": { quantidade: 5, preco: 750 },
+      "Capa de Couro": { quantidade: 3, preco: 900 },
+      "Capa Glitter": { quantidade: 6, preco: 650 },
+      "Capa Slim": { quantidade: 12, preco: 400 },
+      "Capa de Silicone": { quantidade: 7, preco: 350 },
+      "Capa Luxo": { quantidade: 2, preco: 1200 },
+      "Capa Magnética": { quantidade: 4, preco: 1100 }
+    };
+    // Exibe os produtos na interface
+    function carregarProdutos() {
+      const productsGrid = document.getElementById('productsGrid');
+      productsGrid.innerHTML = ''; // Limpa o grid antes de preencher
+
+      for (let produto in estoque) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="imagens/${produto.replace(/\s+/g, '')}.jpg" class="product-img" alt="${produto}">
+          <p>${produto} - ${estoque[produto].preco} MZN</p>
+          <p class="estoque">Estoque: ${estoque[produto].quantidade}</p>
+          <button onclick="comprarProduto('${produto}')">Comprar</button>
+        `;
+        productsGrid.appendChild(card);
+      }
+    }
+// Função para realizar a compra de um produto
+    function comprarProduto(produto) {
+      if (estoque[produto].quantidade > 0) {
+        estoque[produto].quantidade--;
+        alert(`Compra realizada: ${produto}`);
+        carregarProdutos(); // Atualiza o grid de produtos após a compra
+      } else {
+        alert(`O produto "${produto}" está fora de estoque!`);
+      }
+    }
+    // Função de logout
+    function logout() {
+      window.location.href = "index.html";
     }
 
-  function logout() {
-    window.location.href = "index.html";
-  }
-
+    // Carrega os produtos ao iniciar a página
+    carregarProdutos();
 </script>
 </body>
   </html>
