@@ -157,23 +157,61 @@
   </div>
 
   <script>
-    function comprarProduto(produto) {
+   <script>
+  // Estoque inicial dos produtos
+  const estoque = {
+    "Capa Transparente": 10,
+    "Capa Anti-impacto": 8,
+    "Capa Personalizada": 5,
+    "Capa de Couro": 3,
+    "Capa Glitter": 6,
+    "Capa Slim": 12,
+    "Capa de Silicone": 7,
+    "Capa Luxo": 2,
+    "Capa Magnética": 4
+  };
+
+  // Atualiza o texto de estoque nos cards
+  function atualizarEstoqueNaTela() {
+    document.querySelectorAll(".product-card").forEach(card => {
+      const nomeProduto = card.querySelector("p").textContent.split(" - ")[0];
+      const estoqueAtual = estoque[nomeProduto];
+      let spanEstoque = card.querySelector(".estoque-span");
+
+      if (!spanEstoque) {
+        spanEstoque = document.createElement("p");
+        spanEstoque.className = "estoque-span";
+        card.appendChild(spanEstoque);
+      }
+
+      spanEstoque.textContent = `Estoque: ${estoqueAtual}`;
+    });
+  }
+
+  // Compra com verificação de estoque e animação
+  function comprarProduto(produto) {
+    if (estoque[produto] > 0) {
+      estoque[produto]--;
       alert('Compra realizada: ' + produto);
-    
-    // faz animacao funcionar
+      atualizarEstoqueNaTela();
+
       const btn = event.target;
-    
-      
       btn.classList.add('button-animate');
-    
       btn.addEventListener('animationend', () => {
         btn.classList.remove('button-animate');
       }, { once: true });
+    } else {
+      alert(`Produto "${produto}" está fora de estoque!`);
     }
+  }
+
+  document.addEventListener("DOMContentLoaded", atualizarEstoqueNaTela);
 
   function logout() {
     window.location.href = "index.html";
   }
+</script>
+
   </script>
 </body>
   </html>
