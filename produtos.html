@@ -181,7 +181,7 @@
           <img src="imagens/${produto.replace(/\s+/g, '')}.jpg" class="product-img" alt="${produto}">
           <p>${produto} - ${estoque[produto].preco} MZN</p>
           <p class="estoque">Estoque: ${estoque[produto].quantidade}</p>
-          <button onclick="comprarProduto('${produto}')">Comprar</button>
+          <button onclick="comprarProduto('${produto}')">comprar</button>
         `;
         productsGrid.appendChild(card);
       }
